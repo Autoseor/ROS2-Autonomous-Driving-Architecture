@@ -7,14 +7,16 @@
 
 ## Demo
 
+### Video_Link
 
 ---
 
 ## Overview
 
-이 시스템은 카메라와 LiDAR 센서 데이터를 융합해 차선, 장애물 차량, 신호등을 실시간으로 인지합니다.  
-정해진 미션에 따라, 판단부에서 인지 데이터를 분석해 최적의 조향 각도와 목표 속도를 결정하며, 제어부는 이를 명령 패킷으로 변환하여 차량을 구동합니다.  
-유아용 전동차에 아두이노 기반의 제어 명령을 전달하여 트랙을 주행합니다.
+- 인지부: 카메라와 LiDAR 센서 데이터를 융합해 차선, 장애물 차량, 신호등, 횡단보도 실시간 인지
+- 판단부: 인지 데이터를 분석해 최적의 조향 각도와 목표 속도 결정
+- 제어부: 조향 각도와 목표 속도를 명령 패킷으로 변환하여 차량 구동
+- 구동: 유아용 전동차에 아두이노 기반의 제어 명령 전달, 트랙 주행
 
 ### Key features
 
@@ -91,24 +93,28 @@
 
 ---
 
-## 수행 미션
+## Mission Scenarios
 
 시스템 설계의 유연성을 검증하기 위해 3가지의 상이한 미션을 완수했습니다.
 
-1. 트랙 주파 (Track Driving)
-   - 비전 알고리즘을 통한 차선 추종 및 곡선 구간 최적 조향 제어
+1. 트랙 주파 (Track Traversal)
+   - 정해진 트랙 최단 시간 주파
+   - 컴퓨터 비전 알고리즘을 통한 차선 추종 및 곡선 구간 최적 조향 제어
 
-2. 장애물 회피 및 신호 인식
-   - LiDAR 센서 퓨전을 통한 동적/정적 장애물 판단 및 회피 경로 생성
-   - 비전 기반 신호 체계 인지 및 주행 상태 동기화
+2. 장애물 회피 및 신호등 인식 (Obstacle Avoidance & Traffic Signal Recognition)
+   - 동적/정적 장애물 차량 회피, 신호등을 인식해 알맞게 정지/출발
+   - 센서 데이터 퓨전을 활용한 판단 및 회피 경로 생성
+   - YOLO 기반 신호등 인지 및 주행 상태 동기화
 
-3. 자동 주차 (Automatic Parking)
-   - 목표 구역 진입을 위한 경로 생성 및 실시간 보정 로직을 통한 주차 시나리오 완수
+3. 주차 (Autonomous Parking)
+   - 주차 공간 확인 및 후면 주차
+   - 목표 구역 진입을 위한 경로 생성 및 실시간 보정 로직 구현
 
 ---
 
 ## Results
 
+유아용 전동차 시뮬레이션 결과, 모든 미션 5회 이상 주행 성공
 학부 수업 자율주행캡스톤디자인 자체 경진대회 1위
 
 ---
@@ -117,35 +123,33 @@
 
 ```
 ROS2-Autonomous-Driving-Architecture
-├── code/                            # ROS2 기반 자율주행 시스템 소스 코드
-|   ├── src/
-│       ├── arduino_pkg/             # 
-│       ├── camera_perception_pkg/   # 이미지 데이터를 활용한 차선 및 차량 인식
-│       ├── debug_pkg/               #
-│       ├── decision_making_pkg/     # FSM 기반 판단부
-│       ├── execution_pkg/           # 
-│       ├── interfaces_pkg/          # 노드 간 통신을 위한 커스텀 메시지
-│       ├── lidar_perception_pkg/    # LiDAR 데이터를 활용한 전후방 장애물 유무 감지
-│       └── serial_communication_pkg/ # PC와 차량 플랫폼 간의 UART 통신 인터페이스
-|   ├── to_m1.sh
-|   ├── to_m2.sh
-|   ├── to_m3.sh
+├── code/                             # ROS2 기반 자율주행 시스템 전체 코드
+|   ├── src/                          # 소스 코드
+│       ├── arduino_pkg/              # 아두이노 하위 제어 로직
+│       ├── camera_perception_pkg/    # 카메라 기반 도로 상황 인식
+│       ├── debug_pkg/                # 시스템 모니터링 및 디버깅
+│       ├── decision_making_pkg/      # FSM 기반 판단부 모듈
+│       ├── execution_pkg/            # 최종 제어 명령 실행 모듈
+│       ├── interfaces_pkg/           # 노드 간 통신을 위한 커스텀 메시지
+│       ├── lidar_perception_pkg/     # LiDAR 기반 장애물 유무 감지
+│       └── serial_communication_pkg/ # PC-차량 플랫폼 간 UART 통신 인터페이스
+|   ├── to_m1.sh                      # 판단부를 트랙 주파 모드로 설정
+|   ├── to_m2.sh                      # 판단부를 장애물 회피 및 신호등 인식 모드로 설정
+|   ├── to_m3.sh                      # 판단부를 주차 모드로 설정
 |
-├── docs/                        # 연구 관련 문서 및 학술 활동 자료
-│   ├── presentation/            # IEEE ICCE 국제 학회 채택 논문 및 포스터 자료
-│   ├── Hardware_Setup.md        # 산학프로젝트 논문 및 우수 논문 발표 자료
-│   └── Setting.md               # 산학프로젝트 논문 및 우수 논문 발표 자료
+├── docs/                             # 프로젝트 기술 문서 및 활동 자료
+│   ├── presentation/                 # 교내 온라인 발표회 발표 자료
+│   ├── Hardware_Setup.md             # 하드웨어 구성 및 연결
+│   └── Terminal_Setting.md           # 시스템 구동을 위한 터미널 가이드
 |
-├── media/                       # 프로젝트 시연 및 시각화 자료
-│   └── Video_Link/              # 산학 프로젝트 성과교류회 발표 영상
-|
-└── README.md                    # 프로젝트 개요, 시스템 아키텍처 등 안내 문서
+└── README.md                         # 프로젝트 개요, 시스템 아키텍처 등 안내 문서
 ```
 
 ---
 
 ## Acknowledgement
 
-This project was developed as part of the Autonomous Driving Advanced Course at Sungkyunkwan University.
+This project was developed as part of the Autonomous Driving Advanced Course at Sungkyunkwan University.  
 
-The experimental platform and basic framework were provided during the course. The perception pipeline using camera and LiDAR, the FSM-based lane-change decision algorithm, and the overall system integration were implemented in this project.
+The experimental platform and basic framework were provided during the course.  
+The perception pipeline using camera and LiDAR, mission algorithm, and the overall system integration were implemented in this project.
