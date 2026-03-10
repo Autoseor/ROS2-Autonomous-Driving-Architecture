@@ -117,9 +117,29 @@
 
 ```
 ROS2-Autonomous-Driving-Architecture
+├── code/                            # ROS2 기반 자율주행 시스템 소스 코드
+|   ├── src/
+│       ├── arduino_pkg/             # 
+│       ├── camera_perception_pkg/   # 이미지 데이터를 활용한 차선 및 차량 인식
+│       ├── debug_pkg/               #
+│       ├── decision_making_pkg/     # FSM 기반 판단부
+│       ├── execution_pkg/           # 
+│       ├── interfaces_pkg/          # 노드 간 통신을 위한 커스텀 메시지
+│       ├── lidar_perception_pkg/    # LiDAR 데이터를 활용한 전후방 장애물 유무 감지
+│       └── serial_communication_pkg/ # PC와 차량 플랫폼 간의 UART 통신 인터페이스
+|   ├── to_m1.sh
+|   ├── to_m2.sh
+|   ├── to_m3.sh
 |
+├── docs/                        # 연구 관련 문서 및 학술 활동 자료
+│   ├── presentation/            # IEEE ICCE 국제 학회 채택 논문 및 포스터 자료
+│   ├── Hardware_Setup.md        # 산학프로젝트 논문 및 우수 논문 발표 자료
+│   └── Setting.md               # 산학프로젝트 논문 및 우수 논문 발표 자료
 |
+├── media/                       # 프로젝트 시연 및 시각화 자료
+│   └── Video_Link/              # 산학 프로젝트 성과교류회 발표 영상
 |
+└── README.md                    # 프로젝트 개요, 시스템 아키텍처 등 안내 문서
 ```
 
 ---
