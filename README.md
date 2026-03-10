@@ -121,3 +121,11 @@ ROS2-Autonomous-Driving-Architecture
 |
 |
 ```
+
+---
+
+## Acknowledgement
+
+This project was developed as part of the Autonomous Driving Advanced Course at Sungkyunkwan University.
+
+The experimental platform and basic framework were provided during the course. The perception pipeline using camera and LiDAR, the FSM-based lane-change decision algorithm, and the overall system integration were implemented in this project.
