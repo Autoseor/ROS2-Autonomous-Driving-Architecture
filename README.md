@@ -127,7 +127,7 @@ https://drive.google.com/drive/folders/1GYMJ3wTFHcRrzuolcIzSicu3ZcszoKqJ
 ```
 ROS2-Autonomous-Driving-Architecture
 ├── code/                             # ROS2 기반 자율주행 시스템 전체 코드
-|   ├── src/                          # 소스 코드
+|   └── src/                          # 소스 코드
 │       ├── arduino_pkg/              # 아두이노 하위 제어 로직
 │       ├── camera_perception_pkg/    # 카메라 기반 도로 상황 인식
 │       ├── debug_pkg/                # 시스템 모니터링 및 디버깅
@@ -138,7 +138,7 @@ ROS2-Autonomous-Driving-Architecture
 │       └── serial_communication_pkg/ # PC-차량 플랫폼 간 UART 통신 인터페이스
 |   ├── to_m1.sh                      # 판단부를 트랙 주파 모드로 설정
 |   ├── to_m2.sh                      # 판단부를 장애물 회피 및 신호등 인식 모드로 설정
-|   ├── to_m3.sh                      # 판단부를 주차 모드로 설정
+|   └── to_m3.sh                      # 판단부를 주차 모드로 설정
 |
 ├── docs/                             # 프로젝트 기술 문서 및 활동 자료
 │   ├── presentation/                 # 교내 온라인 발표회 발표 자료
