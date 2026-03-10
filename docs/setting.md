@@ -5,8 +5,11 @@
 ```
 colcon build --symlink-install
 ```
-2. image_publisher.py에서 FRAME_SRC를 사용자 환경에 따라 수정해야함.
-e.g. FRAME_SRC = "/home/[사용자 이름]/ros2_merge/src/camera_perception_pkg/camera_perception_pkg/lib/test_video.mp4"  
+2. image_publisher.py에서 FRAME_SRC를 사용자 환경에 따라 수정해야함.  
+e.g.
+```
+FRAME_SRC = "/home/[사용자 이름]/ros2_merge/src/camera_perception_pkg/camera_perception_pkg/lib/test_video.mp4"  
+```
 
 ---
 
