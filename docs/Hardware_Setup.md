@@ -1,6 +1,6 @@
 # Hardware_Setup
 
-**Sensor**  
+**Sensor**(Camera, LiDAR)  
 |  
 | 영상, 장애물 유무 정보  
 ↓  
