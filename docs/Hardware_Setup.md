@@ -1,5 +1,6 @@
 # Hardware_Setup
 
+```
 **Sensor**
 ↓ 영상, 장애물 유무 정보
 **PC**
@@ -9,3 +10,4 @@
 **Motor Driver** ← 12V 직류 - **SMPS** ← 220V 교류 - **Battery**
 ↓ 구동 전압
 **Motor**
+```
