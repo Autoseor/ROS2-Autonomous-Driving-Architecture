@@ -1,6 +1,6 @@
 # ROS2-Autonomous-Driving-Architecture
 
-본 프로젝트는 ROS2 기반으로 3개의 자율주행 미션을 수행하는 모듈형 자율주행 시스템을 설계하고 구현한 프로젝트입니다.  
+본 프로젝트는 ROS2 Humble을 기반으로 3개의 자율주행 미션을 수행하는 모듈형 자율주행 시스템을 설계하고 구현한 프로젝트입니다.  
 인지-판단-제어의 효율적인 데이터 파이프라인을 노드화하여 구축했으며, 유아용 전동차에 입혀 트랙 주행에 성공했습니다.
 
 ---
@@ -9,10 +9,10 @@
 
 ### Video_Link
 
-Link for driving video
+**Link for driving video**
 https://drive.google.com/drive/folders/1upF1mNUlB2NO9lO2neyLbMjiGGSPX5eX
 
-Link for presentation video
+**Link for presentation video**
 https://drive.google.com/drive/folders/1GYMJ3wTFHcRrzuolcIzSicu3ZcszoKqJ
 
 ---
@@ -26,10 +26,10 @@ https://drive.google.com/drive/folders/1GYMJ3wTFHcRrzuolcIzSicu3ZcszoKqJ
 
 ### Key features
 
-- Lane/vehicle/traffic light detection using YOLO
-- ROS2 based modular architecture
-- Sensor fusion
-- UART communication
+- YOLOv8 Based Detection
+- Modular ROS2 Architecture
+- Sensor Fusion
+- UART Communication
 
 ---
 
@@ -104,23 +104,20 @@ https://drive.google.com/drive/folders/1GYMJ3wTFHcRrzuolcIzSicu3ZcszoKqJ
 시스템 설계의 유연성을 검증하기 위해 3가지의 상이한 미션을 완수했습니다.
 
 1. 트랙 주파 (Track Traversal)
-   - 정해진 트랙 최단 시간 주파
-   - 컴퓨터 비전 알고리즘을 통한 차선 추종 및 곡선 구간 최적 조향 제어
+   - 정해진 트랙 최단 시간 주파 및 곡선 구간 조향 최적화
 
 2. 장애물 회피 및 신호등 인식 (Obstacle Avoidance & Traffic Signal Recognition)
-   - 동적/정적 장애물 차량 회피, 신호등을 인식해 알맞게 정지/출발
-   - 센서 데이터 퓨전을 활용한 판단 및 회피 경로 생성
-   - YOLO 기반 신호등 인지 및 주행 상태 동기화
+   - 센서 퓨전 기반 동적/정적 장애물 차량 회피
+   - YOLO 기반 신호등 인지 및 동기화, 알맞게 정지/출발
 
 3. 주차 (Autonomous Parking)
-   - 주차 공간 확인 및 후면 주차
-   - 목표 구역 진입을 위한 경로 생성 및 실시간 보정 로직 구현
+   - 주차 공간 확인 및 후면 주차 경로 생성 및 실시간 보정
 
 ---
 
 ## Results
 
-유아용 전동차 시뮬레이션 결과, 모든 미션 5회 이상 주행 성공
+유아용 전동차 트랙 주행 결과, 모든 미션 5회 이상 주행 성공
 학부 수업 자율주행캡스톤디자인 자체 경진대회 1위
 
 ---
