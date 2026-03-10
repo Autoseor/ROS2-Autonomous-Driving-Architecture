@@ -8,7 +8,7 @@
 |  
 | 속도 & 조향 명령  
 ↓  
-**Arduino** ←-- 현재 핸들이 돌아간 방향 -- **Variable Register**  
+**Arduino** ←-- 현재 핸들이 돌아간 방향 -- **Potentiometer**  
 |  
 | 제어 전압  
 ↓  
